@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { memo } from 'react';
 import './index.scss';
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
           <div className='parent'>
             <div className='left'>
               <div className="title">
-                ￥4
+                ￥<span className='price-text'>4</span>
               </div>
 
               <div className='bottom-text'>
@@ -41,11 +41,13 @@ const Home = () => {
 
             <div className='right'>
               <div className='right-condition-text'>
-                最高膨胀至<span>20</span>
+                最高膨胀至<span className='price-text'>20</span>
               </div>
-              
-              <div className='go-swell-btn'>
-                去膨胀
+
+              <div className='go-swell'>
+                <div className='swell-btn'>
+                  去膨胀
+                </div>
               </div>
             </div>
           </div>
