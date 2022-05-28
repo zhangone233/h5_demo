@@ -1,0 +1,21 @@
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+
+  .list-container{
+    padding: 0.1rem;
+
+    // 如果这里使用padding-bottom，就不用加下面那个 last-child
+    // padding-bottom: 2rem;
+
+    .list-item{
+      border: 1px solid #000;
+      margin-bottom: 0.2rem;
+
+      &:last-child{
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

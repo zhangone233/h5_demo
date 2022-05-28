@@ -11,6 +11,32 @@
         font-size: 0.3rem;
         color: #000;
       }
+
+      .flexBox{
+        display: flex;
+
+        .div1{
+          padding: 3px;
+          background-image: linear-gradient(to right, rgb(247, 243, 236), rgb(245, 225, 188));
+          margin-right: 0.1rem;
+          position: relative;
+
+          .div2{
+            width: 1rem;
+            height: 1rem;
+          }
+
+          .border{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #000;
+          }
+        }
+      }
+      
     }
 
     .info{

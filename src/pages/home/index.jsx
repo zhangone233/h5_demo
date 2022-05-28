@@ -7,9 +7,28 @@ const Home = () => {
     <div className='content'>
       <div className='header'>
         <h4>我是标题</h4>
+
+        <div className="flexBox">
+          <div className='div1'>
+            <div className='div2'></div>
+
+            <div className='border'></div>
+          </div>
+
+          <div className='div1'>
+            <div className='div2'></div>
+            
+            <div className='border'></div>
+          </div>
+        </div>
+
       </div>
 
       <div className="info">
+        <div>
+          <img src="" alt="" />
+        </div>
+
         {/* 从这开始的 */}
         <div className='ticket-item'>
           {/* 其它元素 定位 */}
