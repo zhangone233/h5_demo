@@ -54,4 +54,4 @@ const PageB = () => {
   )
 }
 
-export default memo(PageB)
+export default memo(PageB);

@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import Home from './pages/home'
 import PageB from './pages/pageB/pageB'
+import PageC from './pages/pageC/pageC'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PageB />
+    <PageC />
   </React.StrictMode>
 );
 
