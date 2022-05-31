@@ -13,7 +13,19 @@ import dayjs from 'dayjs';
  */
 
 class ListItem extends PureComponent {
-  
+
+  // static getDerivedStateFromProps (nextProps, nextState) {
+    
+  // }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { delayBox, finalReward } = this.props;
+
+  //   if (prevProps.delayBox !== delayBox || prevProps.finalReward !== finalReward) {
+  //     this.hasCoupon();
+  //   }
+  // }
+
   // 截止日期定时器
   deadlineTimer = null;
 
@@ -106,7 +118,7 @@ class ListItem extends PureComponent {
 
     const [h, m, s] = this.secondsConvertHMS(differenceSecondsTime, true);
 
-    this.startTimeoutFn(differenceSecondsTime);
+    // this.startTimeoutFn(differenceSecondsTime);
     return `${h}:${m}:${s}`;
   }
 
