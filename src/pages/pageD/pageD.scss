@@ -130,7 +130,7 @@
         font-size: 0.32rem;
         font-weight: 400;
 
-        &.sweep-ray{
+        &.sweep-ray-animation{
           position: relative;
           // 实际开发中加上溢出隐藏。这样伪元素就不会在父级元素的外面显示
           // overflow: hidden;
