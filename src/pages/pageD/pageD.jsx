@@ -37,6 +37,10 @@ export default class PageD extends PureComponent {
               </div>
             ))}
           </div>
+
+          <div className='footer'>
+            <button className='btn sweep-ray'>领取</button>
+          </div>
         </div>
       </div>
     )

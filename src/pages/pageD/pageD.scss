@@ -83,7 +83,7 @@
             // 帧动画的名称 （@keyframes 自定义的名称）
             animation-name: rotateAndScale;
             // 动画速度曲线 (linear（匀速）、ease（慢-快-慢）、ease-in（开始慢）、ease-out（结束慢）、ease-in-out（开始、结束慢）)
-            animation-timing-function: linear;
+            animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
             // 总共重复执行多少次动画，默认一次 （infinite 为无限循环动画）
             animation-iteration-count: infinite;
           }
@@ -107,6 +107,65 @@
           position: absolute;
           bottom: -0.2rem;
           left: -0.04rem;
+        }
+      }
+    }
+
+    .footer{
+      width: 4rem;
+      padding: 0.1rem;
+      background-color: #000;
+      text-align: center;
+      margin: 3rem auto 0;
+      
+      .btn{
+        outline: none;
+        list-style: none;
+        border: 0;
+        width: 1.5rem;
+        height: 0.6rem;
+        background-image: linear-gradient(to right, orange, red);
+        border-radius: 20px;
+        color: #fff;
+        font-size: 0.32rem;
+        font-weight: 400;
+
+        &.sweep-ray{
+          position: relative;
+          // 实际开发中加上溢出隐藏。这样伪元素就不会在父级元素的外面显示
+          // overflow: hidden;
+
+          // 需求：动画总执行时长 0.7秒。 每隔1.5秒执行一次。
+          // 总共 2.2秒的时间 动画只能占用0.7   ----   Math.round(0.7 / 2.2 * 100) 约等于 32% 的动画时长
+          @keyframes sweepRay {
+            0% {
+              transform: skewX(-20deg) translateX(0);
+            }
+            
+            32% {
+              transform: skewX(-20deg) translateX(2.1rem);
+            }
+
+            100% {
+              transform: skewX(-20deg) translateX(2.1rem);
+            }
+          }
+
+          &::before{
+            content: '';
+            height: 100%;
+            width: 0.5rem;
+            position: absolute;
+            top: 0;
+            left: -0.6rem;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .4));
+            // X水平方向倾斜负20度     X水平平移为0
+            transform: skewX(-20deg) translateX(0);
+            animation-name: sweepRay;
+            animation-duration: calc(0.7s + 1.5s);
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
         }
       }
     }
