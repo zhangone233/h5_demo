@@ -1,0 +1,168 @@
+.gift-content{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .gift-list{
+    position: fixed;
+    right: 0.5rem;
+    bottom: 25vh;
+
+    .gift-item{
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      background-image: linear-gradient(to right, rgba(166, 127, 221, .8),rgba(136, 91, 210, .8));
+      position: relative;
+
+      & + .gift-item{
+        margin-top: 0.8rem;
+      }
+
+      .gift-icon{
+        width: 100%;
+        height: 100%;
+
+        @keyframes rotateAndScale {
+          0% {
+            transform: scale(1) rotate(0);
+          }
+
+          5% {
+            transform: scale(1.05) rotate(15deg);
+          }
+
+          10% {
+            transform: scale(1.1) rotate(0deg);
+          }
+
+          15% {
+            transform: scale(1.15) rotate(-15deg);
+          }
+
+          20% {
+            transform: scale(1.20) rotate(0deg);
+          }
+
+          25% {
+            transform: scale(1.15) rotate(10deg);
+          }
+
+          30% {
+            transform: scale(1.1) rotate(0deg);
+          }
+
+          35% {
+            transform: scale(1.05) rotate(-10deg);
+          }
+
+          40% {
+            transform: scale(1) rotate(0);
+          }
+
+          // 40% ~ 100% 不改变任何东西，这期间作为动画重复播放的间隔时间
+          // 动画持续时长为 2.5秒 除去前 40% 的动画时间，得出剩余间隔时间为 1.5秒 后再次播放动画
+          100% {
+            transform: scale(1) rotate(0);
+          }
+        }
+
+        &.gift-icon-animation{
+          // 初始元素放大比例为1:1正常大小。  旋转方向度数为0正常位置
+          transform: scale(1) rotate(0);
+          // 初始页面时，等待2.5秒后开始第一次动画
+          animation-delay: 1.5s;
+          // 动画持续时长为 2.5秒
+          animation-duration: 2.5s;
+          // 帧动画的名称 （@keyframes 自定义的名称）
+          animation-name: rotateAndScale;
+          // 动画速度曲线 (linear（匀速）、ease（慢-快-慢）、ease-in（开始慢）、ease-out（结束慢）、ease-in-out（开始、结束慢）)
+          animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+          // 总共重复执行多少次动画，默认一次 （infinite 为无限循环动画）
+          animation-iteration-count: infinite;
+        }
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .gift-name{
+        width: 100%;
+        height: 0.6rem;
+        color: #000;
+        font-size: 0.35rem;
+        line-height: 0.6rem;
+        text-align: center;
+        border-radius: 20px;
+        border: 2px solid #fff;
+        background-color: orange;
+        position: absolute;
+        bottom: -0.2rem;
+        left: -0.04rem;
+      }
+    }
+  }
+
+  .footer{
+    width: 4rem;
+    padding: 0.1rem;
+    background-color: #000;
+    text-align: center;
+    margin: 0 auto 0;
+    
+    .btn{
+      outline: none;
+      list-style: none;
+      border: 0;
+      width: 1.5rem;
+      height: 0.6rem;
+      background-image: linear-gradient(to right, orange, red);
+      border-radius: 20px;
+      color: #fff;
+      font-size: 0.32rem;
+      font-weight: 400;
+
+      &.sweep-ray-animation{
+        position: relative;
+        // 实际开发中加上溢出隐藏。这样伪元素就不会在父级元素的外面显示
+        // overflow: hidden;
+
+        // 需求：动画总执行时长 0.7秒。 每隔1.5秒执行一次。
+        // 总共 2.2秒的时间 动画只能占用0.7   ----   Math.round(0.7 / 2.2 * 100) 约等于 32% 的动画时长
+        @keyframes sweepRay {
+          0% {
+            transform: skewX(-20deg) translateX(0);
+          }
+          
+          32% {
+            transform: skewX(-20deg) translateX(2.1rem);
+          }
+
+          100% {
+            transform: skewX(-20deg) translateX(2.1rem);
+          }
+        }
+
+        &::before{
+          content: '';
+          height: 100%;
+          width: 0.5rem;
+          position: absolute;
+          top: 0;
+          left: -0.6rem;
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .4));
+          // X水平方向倾斜负20度     X水平平移为0
+          transform: skewX(-20deg) translateX(0);
+          animation-name: sweepRay;
+          animation-duration: calc(0.7s + 1.5s);
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+  }
+}

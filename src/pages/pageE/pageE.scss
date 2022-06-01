@@ -1,0 +1,48 @@
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: aquamarine;
+
+  .list-container{
+    padding: 0.1rem;
+
+    // 如果这里使用padding-bottom，就不用加下面那个 last-child
+    // padding-bottom: 2rem;
+
+    .list-item{
+      border: 1px solid #000;
+      margin-bottom: 0.2rem;
+
+      &:last-child{
+        margin-bottom: 2rem;
+      }
+
+      > h5 {
+        margin: 0.4rem 0;
+      }
+
+      .item-deadline{
+        color: #ff0000;
+        margin: 0.1rem 0 0;
+      }
+
+      .receive-btn{
+        outline: none;
+        border: 0;
+        border-radius: 0.4rem;
+        width: 1.5rem;
+        height: 0.6rem;
+        font-size: 0.34rem;
+        color: #fff;
+        padding: 0;
+        margin: 0;
+        background-image: linear-gradient(to right, orange, red);
+
+        &.receive-btn-disabled{
+        background-image: linear-gradient(to right, rgba(118, 117, 117, .7), rgba(118, 117, 117, 1));
+        }
+      }
+    }
+  }
+}
