@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import './GiftList.scss';
 
-export default class GiftList extends PureComponent {
+import GiftItem from './GiftItem/GiftItem.jsx'
 
+export default class GiftList extends PureComponent {
   static defaultProps = {
     giftDataList: [],
   }
@@ -15,14 +16,7 @@ export default class GiftList extends PureComponent {
         {/* start */}
         <div className="gift-list">
           {giftDataList.map(item => (
-            <div className='gift-item' key={item.id}>
-              {/* 可以动态判断给指定的div加动画类名 */}
-              <div className={`gift-icon ${item.isAnimation ? 'gift-icon-animation' : ''}`}>
-                <img src={item.url} alt="" />
-              </div>
-
-              <div className='gift-name'>{item.name}</div>
-            </div>
+            <GiftItem giftData={item} key={item.id} />
           ))}
         </div>
 

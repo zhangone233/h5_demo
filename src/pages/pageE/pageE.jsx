@@ -21,19 +21,24 @@ class pageE extends PureComponent {
           id: 1,
           name: '好友组队',
           url: require('./gift.png'),
-          isAnimation: false,
+          // 距离今天此时此刻, 2个小时后的时间戳 （不满一天的，展示为 时-分-秒 。需要自动倒计时）
+          deadlineTime: dayjs().add(2, 'hour').unix().toString(),
+          standardTime: dayjs().unix().toString(),
         },
         {
           id: 2,
           name: '点击领取',
           url: require('./gift.png'),
-          isAnimation: true,
+          deadlineTime: dayjs().add(10, 'second').unix().toString(),
+          standardTime: dayjs().unix().toString(),
         },
         {
           id: 3,
           name: '点击领取',
           url: require('./gift.png'),
-          isAnimation: true,
+          // 距离今天此时此刻, 已经过期一个小时
+          deadlineTime: dayjs().subtract(1, 'hour').unix().toString(),
+          standardTime: dayjs().unix().toString(),
         }
       ]
 

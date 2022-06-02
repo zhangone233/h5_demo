@@ -1,26 +1,14 @@
 import React, { PureComponent } from 'react';
 import dayjs from 'dayjs';
 
-/**
- * 类型
- * ```
- *  ticketData = {
- *      id: number,
- *      name: string,
- *      deadlineTime: string
- *      standardTime: string
- *  }
- * ```
- */
-
 // 一天的秒数
 const SECONDS_DAY = 3600 * 24;
 // 倒计时定时器间隔时间 （秒）
 const INTERVAL_MILLISECOND = 1;
 
-class ListItem extends PureComponent {
+export default class GiftList extends PureComponent {
   static defaultProps = {
-    ticketData: {},
+    giftData: {},
   }
 
   constructor(props) {
@@ -30,8 +18,8 @@ class ListItem extends PureComponent {
      * 1. 组件首次挂载之前先进行计算和判断过期时间，设置初始state对象属性
      */
 
-    const { ticketData } = props;
-    const { deadlineTime, standardTime } = ticketData;
+    const { giftData } = props;
+    const { deadlineTime, standardTime } = giftData;
     // standardTime 后端不返，就可以前端自己取本地时间
     // this.calculateDeadline(deadlineTime, dayjs().unix().toString());
 
@@ -57,7 +45,6 @@ class ListItem extends PureComponent {
     }
   }
 
-  // 截止日期倒计时定时器
   deadlineTimer = null;
 
   componentDidMount() {
@@ -179,28 +166,20 @@ class ListItem extends PureComponent {
     return `${h}:${m}:${s} 后过期`;
   }
 
-
   render() {
-    const { ticketData } = this.props;
+    // 上面的有些函数可以抽离成公用的。 state属性命名也可改一下
+    const { giftData } = this.props;
     const { btnDisabled, formatTime } = this.state;
 
-    console.log('render');
-
     return (
-      <div className="list-item">
-        <h5>{ticketData.name}</h5>
+      <div className='gift-item'>
+        {/* 可以动态判断给指定的div加动画类名 */}
+        <div className={`gift-icon ${btnDisabled ? 'gift-icon-animation' : ''}`}>
+          <img src={giftData.url} alt="" />
+        </div>
 
-        <p className='item-deadline'>{formatTime}</p>
-
-        <button
-          disabled={btnDisabled}
-          className={`receive-btn${btnDisabled ? ' receive-btn-disabled' : ''}`}
-        >
-          去使用
-        </button>
+        <div className='gift-name'>{formatTime}</div>
       </div>
     )
   }
 }
-
-export default ListItem;
