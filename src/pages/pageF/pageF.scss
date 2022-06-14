@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+
+  .modal-container{
+
+    .content-box{
+      margin: 1rem 0.5rem 0;
+      max-height: 7rem;
+      overflow: hidden;
+      border: 1px solid red;
+
+      .description-box{
+        font-size: 0.3rem;
+        max-height: 5rem;
+        overflow: scroll;
+        margin-bottom: 0.3rem;
+        z-index: 9;
+        position: relative;
+
+        .text{
+        }
+      }
+
+      .btn-box{
+        height: 1.7rem;
+        background-color: yellow;
+        position: relative;
+        text-align: center;
+        z-index: 8;
+
+        button{
+          outline: none;
+          width: 90%;
+          height: 0.6rem;
+          background-image: linear-gradient(to right, orange, red);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 9;
+        }
+
+        .layer{
+          position: absolute;
+          height: 2.7rem;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          background-image: linear-gradient(to bottom, #ccc, rgb(239, 239, 239));
+        }
+      }
+    }
+  }
+}
