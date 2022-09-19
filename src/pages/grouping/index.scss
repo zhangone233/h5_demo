@@ -1,0 +1,14 @@
+.grouping-container {
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  padding: 40px;
+
+  .grouping-content {
+    width: 300px;
+    
+    .grouping-component {
+      margin-bottom: 20px;
+    }
+  }
+}
